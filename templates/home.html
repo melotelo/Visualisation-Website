@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Main.css') }}">
+        <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    </head>
+
+    <body>
+
+
+        <nav>
+            <a class="active" href="/">Home</a>
+            <a href="visualisation"> Visualisation</a>
+            <a href="about"> About</a>
+        </nav>
+
+        <section id="explanation">
+            <header>
+                <h2><em> How to use this website?</em></h2>
+            </header>
+            <article>
+                <h3 class="expl_subtitles"> General introduction </h3>
+                <p>
+                    On the visualisations tab, a dataset can be uploaded, which will be visualised. 
+                    Then, the desired visualisation can be selected from the dropdown menu, after which the visualisation will appear.
+                    The visualisation can then be customised using the settings tab. The specifics will be explained in the coming sections
+                </p> 
+                <h3 class="expl_subtitles"> Uploading the data </h3>
+                <p>
+                    The uploaded data must be in .csv format.
+                </p>
+                <h3 class="expl_subtitles"> Choosing the visualisation </h3>
+                <p>
+                    Use the drop down menu to select the visualisation you want to see.
+                </p>
+                <h3 class="expl_subtitles"> Customising the visualisation </h3>
+                <p>
+                    Using the settings menu you can choose to highlight certain nodes.
+                </p>    
+            </article>
+        </section>
+        
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/umDr0mPuyQc?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+    </body>
+</html>
