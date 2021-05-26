@@ -53,20 +53,22 @@ function OpenFullscreen(visbox) { // This magic makes the fullscreen buttons wor
     if (document.fullscreenElement || visbox==-1) { // this runs if you leave fullscreen
 
         document.exitFullscreen();
-        
-        var fullscreenvisframes=document.getElementsByClassName("visframe_fullscreen");
-        while (fullscreenvisframes.length > 0) {
-            fullscreenvisframes[0].className="visframe";
+
+        var fullscreenvisframes=document.getElementsByClassName("visframe fullscreen");
+        for (var i=0; i<fullscreenvisframes.length; i++) {
+            fullscreenvisframes[i].classList.remove("fullscreen");
         }
 
     } else { // this runs when you go to fullscreen
+
         var visbox_=document.getElementById("visbox_"+visbox);
         visbox_.requestFullscreen();
 
         var visframes=document.getElementsByClassName("visframe");
-        while (visframes.length > 0) {
-            visframes[0].className="visframe_fullscreen";
+        for (var j=0; j<visframes.length; j++) {
+            visframes[j].classList.add("fullscreen");
         }
+
     } 
 }
 
@@ -115,33 +117,3 @@ window.onclick=function(event) {
         CloseSettings();
     }
 };
-
-/*
-function fit() {
-    var iframes = document.querySelectorAll("iframe.gh-fit")
-
-    for(var id = 0; id < iframes.length; id++) {
-        var win = iframes[id].contentWindow
-        var doc = win.document
-        var html = doc.documentElement
-        var body = doc.body
-        var ifrm = iframes[id] // or win.frameElement
-
-        if(body) {
-            body.style.overflowX = "hidden" // scrollbar-jitter fix
-            body.style.overflowY = "hidden"
-        }
-        if(html) {
-            html.style.overflowX = "hidden" // scrollbar-jitter fix
-            html.style.overflowY = "hidden"
-            var style = win.getComputedStyle(html)
-            ifrm.width = parseInt(style.getPropertyValue("width")) // round value
-            ifrm.height = parseInt(style.getPropertyValue("height"))
-        }
-    }
-
-    requestAnimationFrame(fit)
-}
-
-addEventListener("load", requestAnimationFrame.bind(this, fit))
-*/

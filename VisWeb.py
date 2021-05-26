@@ -48,9 +48,9 @@ def vispage():
             file.save(os.path.join("uploads", sec_filename))
 
             os.system("python RadialVis.py") # This .py script generates the visualisation and places radial_nodes_vis.html in the static folder
-            #inputdata = pd.read_csv(file)
+            inputdata = pd.read_csv("uploads/inputdata.csv")
             uniquejobs=["test1", "test2"]
-            #uniquejobs = inputdata["toJobtitle"].unique()
+            uniquejobs = inputdata.toJobtitle.unique()
 
             return render_template('visualisation.html', message = "Succesfully uploaded a Dataset!", categories=uniquejobs)
         else: # page shown when the user successfully uploads an invalid file

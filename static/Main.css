@@ -395,7 +395,7 @@ li a:hover {
     float: left;
 }
 
-.visframe_fullscreen {
+.fullscreen {
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -412,7 +412,7 @@ li a:hover {
     display: inline; /* This is so vis_2_0 shows when you first load the page */
 }
 
-#visualisation_1_1.visframe_fullscreen {
+#visualisation_1_1.fullscreen {
     transform: translate(-49vw, 0) scale(1.4);
 }
 
@@ -420,7 +420,7 @@ li a:hover {
     display: inline; /* This is so vis_2_0 shows when you first load the page */
 }
 
-#visualisation_2_1.visframe_fullscreen {
+#visualisation_2_1.fullscreen {
     transform: translate(-49vw, 0) scale(1.4);
 }
 

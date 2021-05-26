@@ -6,7 +6,7 @@
     <script src="{{ url_for('static', filename='scripts.js') }}"></script> 
 </head>
 
-<body>
+<body> <!--onload="selectVis(1,1); selectVis(2,2)"-->
     
     <nav>
         <a href="/">Home</a>
@@ -69,10 +69,7 @@
                         <section class="dropdown">
                             <div class="dropdownbutton"> Select category(s) </div>
                             <div class="dropdown-content">
-                                <c>Manager</c>
-                                <c>Salary Worker</c>
-                                <c>CEO</c>
-                                <c>...</c>
+                                <c>Test</c>
                                 {% for cats in categories %}
                                     <c>{{cats}}</c>
                                 {% endfor %}
@@ -120,9 +117,6 @@
                         <div class="fullscreen_div">
                             <button class="fullscreen_button" id="full1" onclick="OpenFullscreen(1)"><img src="{{ url_for('static', filename='Fullscreen_img.png') }}"></button>
                         </div>
-                        <!--
-                        <input type="image" src="Fullscreen_img.png" class="fullscreen_button" id="full1" onclick="OpenFullscreen(1)"/>
-                        -->
                     </div> 
                     
                     <div class="viswrap">
