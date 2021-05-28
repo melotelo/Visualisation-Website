@@ -3,6 +3,8 @@ window.onload=function() {
     //alert("scripts are loading");
 
 
+    
+
     var categories = document.getElementsByTagName("c");
 
     for (var i = 0; i < categories.length; i++) { //prepares all category buttons for later use
@@ -82,15 +84,17 @@ function selectVis(visbox, vischoice) { //
     } else {
         vis.style.display="inline-block";
     }
+
     for (var i=0; i<=3 ; i++) {
         if (i==vischoice) {
             document.getElementById("choice_"+visbox+"_"+i).className="visselected";
-            document.getElementById("visualisation_"+visbox+"_"+i).style.display="inline";
+            document.getElementById("visualisation_"+visbox+"_"+i).classList.add("visible");
         } else {
             document.getElementById("choice_"+visbox+"_"+i).className="visoption";
-            document.getElementById("visualisation_"+visbox+"_"+i).style.display="none";
+            document.getElementById("visualisation_"+visbox+"_"+i).classList.remove("visible");
         }
     }
+
 }
 
 

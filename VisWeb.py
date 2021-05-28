@@ -35,13 +35,13 @@ def vispage():
     if request.method=="POST":
         if 'file' not in request.files: # page shown when a submitted form does not contain any 'file'-named part
             #flash('no file part in the form?')
-            return render_template("visualisation.html", message="What happened?")
+            return render_template("visualisation.html", exampledata="_example", message="What happened?")
         
         file = request.files["file"]
         
         if file.filename=='': # page shown when the user did not submit any file at all
             #flash('No file detected')
-            return render_template("visualisation.html", message="You have not uploaded anything. >:(")
+            return render_template("visualisation.html", exampledata="_example", message="You have not uploaded anything. >:(")
         if file and allowed_file(file.filename): # page shown when the user successfully uploads a valid file
             #flash('file is now uploaded')
             sec_filename=secure_filename("inputdata.csv") #file.filename
@@ -50,11 +50,11 @@ def vispage():
             os.system("python RadialVis.py") # This .py script generates the visualisation and places radial_nodes_vis.html in the static folder
             inputdata = pd.read_csv("uploads/inputdata.csv")
             uniquejobs=["test1", "test2"]
-            uniquejobs = inputdata.toJobtitle.unique()
+            uniquejobs = np.unique(inputdata[["fromJobtitle", "toJobtitle"]].values)
 
-            return render_template('visualisation.html', message = "Succesfully uploaded a Dataset!", categories=uniquejobs)
+            return render_template('visualisation.html', exampledata="", message = "Succesfully uploaded a Dataset!", categories=uniquejobs)
         else: # page shown when the user successfully uploads an invalid file
-            return render_template("visualisation.html", message="Illegal file type!")
+            return render_template("visualisation.html", exampledata="_example", message="Illegal file type!")
     else:
 
         #if os.path.exists("static/radial_nodes_vis.html"): # This code below automatically removes the old vis
@@ -65,7 +65,7 @@ def vispage():
         for el in [x for x in Path('.').iterdir() ]: #if x.is_dir()  this is for debugging 
             paths=paths+str(el)+" ||| "
 
-        return render_template('visualisation.html', message = "Please upload a data file.", debug_msg="") #+paths
+        return render_template('visualisation.html', exampledata="_example", message = "Please upload a data file.", debug_msg="") #+paths
 
 
 

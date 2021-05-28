@@ -130,7 +130,7 @@ date_range_slider.js_on_change('value', callback)
 layout = column(plot, date_range_slider)
 
 
-output_file("static/radial_nodes_vis.html",
+output_file("static/radial_nodes.html",
             title="Radial Node and Link Visualisation")
 save(layout)
 #show(layout) # keep this commented please :))

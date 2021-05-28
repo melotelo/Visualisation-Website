@@ -107,8 +107,8 @@
                         <div class="dropdown_vis">
                             <div class="dropdownbutton">Select Visualisation</div>
                             <div class="dropdown-content">
-                                <v class="visselected" id="choice_1_0" onclick="selectVis(1,0)">-Select Visualisation-</v>
-                                <v class="visoption" id="choice_1_1" onclick="selectVis(1,1)">Radial Nodes and Edges</v>
+                                <v class="visoption" id="choice_1_0" onclick="selectVis(1,0)">-Select Visualisation-</v>
+                                <v class="visselected" id="choice_1_1" onclick="selectVis(1,1)">Radial Nodes and Edges</v>
                                 <v class="visoption" id="choice_1_2" onclick="selectVis(1,2)">Vis 2</v>
                                 <v class="visoption" id="choice_1_3" onclick="selectVis(1,3)">Vis 3</v>
                             </div>
@@ -121,9 +121,11 @@
                     
                     <div class="viswrap">
                         <img class="visframe" id="visualisation_1_0" src = "https://source.colostate.edu/wp-content/uploads/2015/09/circos_ngs.jpg">
+                        <img class="visframe" id="visualisation_1_0" src="https://source.colostate.edu/wp-content/uploads/2015/09/circos_ngs.jpg">
+
+                        <iframe class="visframe visible" src="static/radial_nodes{{exampledata}}.html" id="visualisation_1_1" frameborder="0"></iframe> 
+                        <!--src="{{ url_for('static', filename='radial_nodes_vis.html') }}"-->
                         
-                        <iframe class="visframe" src="{{ url_for('static', filename='radial_nodes_vis.html') }}"  id="visualisation_1_1" frameborder="0"></iframe> <!--scrolling="no"-->
-                        <!--class="gh-fit gh-fullwidth"  {# src="{{ url_for('uploads', filename='interactive_graphs.html') }}" #}  -->
                         <p class="visframe" id="visualisation_1_2">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -150,9 +152,9 @@
                         <div class="dropdown_vis">
                             <div class="dropdownbutton">Select Visualisation</div>
                             <div class="dropdown-content">
-                                <v class="visselected" id="choice_2_0" onclick="selectVis(2,0)">-Select Visualisation-</v>
+                                <v class="visoption" id="choice_2_0" onclick="selectVis(2,0)">-Select Visualisation-</v>
                                 <v class="visoption" id="choice_2_1" onclick="selectVis(2,1)">Radial Nodes and Edges</v>
-                                <v class="visoption" id="choice_2_2" onclick="selectVis(2,2)">Vis 2</v>
+                                <v class="visselected" id="choice_2_2" onclick="selectVis(2,2)">Vis 2</v>
                                 <v class="visoption" id="choice_2_3" onclick="selectVis(2,3)">Vis 3</v>
                             </div>
                         </div> 
@@ -163,10 +165,9 @@
                     <div class="viswrap">
                         <img class="visframe" id="visualisation_2_0" src = "https://source.colostate.edu/wp-content/uploads/2015/09/circos_ngs.jpg">
                         
-                        <iframe class="visframe" src="{{ url_for('static', filename='radial_nodes_vis.html') }}" id="visualisation_2_1" frameborder="0"></iframe> <!--scrolling="no"-->
-                        <!--class="gh-fit gh-fullwidth" -->
+                        <iframe class="visframe" src="static/radial_nodes{{exampledata}}.html" id="visualisation_2_1" frameborder="0"></iframe> <!--scrolling="no"-->
                         
-                        <p class="visframe" id="visualisation_2_2">
+                        <p class="visframe visible" id="visualisation_2_2">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
