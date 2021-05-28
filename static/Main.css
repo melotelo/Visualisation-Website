@@ -12,7 +12,6 @@ body {
 }
 
 main{
-
     height:2%;
 }
 
@@ -194,6 +193,11 @@ li a:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     cursor: pointer;
+    overflow: auto;
+}
+
+.dropdown-content#category-content {
+    max-height: 15vw;
 }
 
 .dropdown-content c {
@@ -201,7 +205,6 @@ li a:hover {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    
     background-color: white;
 }
 
@@ -374,10 +377,6 @@ li a:hover {
     margin-top: 1%;
 }
 
-.gh-fullwidth {
-    width: 100%;
-}
-
 .viswrap {
     width: 100%; 
     overflow: none;
@@ -388,11 +387,12 @@ li a:hover {
 
 .visframe {
     width: 100%; 
-    min-height: 78vh;
+    min-height: 74vh;
     /*background-color: aqua; */
     overflow: hidden;
     display: none;
     float: left;
+     
 }
 
 .visframe.visible {

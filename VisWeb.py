@@ -30,42 +30,45 @@ app = Flask(__name__, template_folder='./templates', static_folder='./static')
 def homepage():
     return render_template("home.html")
 
+exampledata = pd.read_csv("uploads/example_data.csv")
+examplejobs=sorted(np.unique(exampledata[["fromJobtitle", "toJobtitle"]].values))
+
 @app.route('/visualisation', methods = ["GET", "POST"])
 def vispage():
     if request.method=="POST":
         if 'file' not in request.files: # page shown when a submitted form does not contain any 'file'-named part
             #flash('no file part in the form?')
-            return render_template("visualisation.html", exampledata="_example", message="What happened?")
+            return render_template("visualisation.html", exampledata="_example", message="Showing example dataset.", categories=examplejobs)
         
         file = request.files["file"]
         
         if file.filename=='': # page shown when the user did not submit any file at all
             #flash('No file detected')
-            return render_template("visualisation.html", exampledata="_example", message="You have not uploaded anything. >:(")
+            return render_template("visualisation.html", exampledata="_example", message="You have not uploaded anything. >:(", categories=examplejobs)
         if file and allowed_file(file.filename): # page shown when the user successfully uploads a valid file
             #flash('file is now uploaded')
             sec_filename=secure_filename("inputdata.csv") #file.filename
             file.save(os.path.join("uploads", sec_filename))
 
-            os.system("python RadialVis.py") # This .py script generates the visualisation and places radial_nodes_vis.html in the static folder
+            os.system("python RadialVis.py") # This .py script generates the visualisation and places radial_nodes.html in the static folder
             inputdata = pd.read_csv("uploads/inputdata.csv")
-            uniquejobs=["test1", "test2"]
-            uniquejobs = np.unique(inputdata[["fromJobtitle", "toJobtitle"]].values)
+            uniquejobs = sorted(np.unique(inputdata[["fromJobtitle", "toJobtitle"]].values))
 
             return render_template('visualisation.html', exampledata="", message = "Succesfully uploaded a Dataset!", categories=uniquejobs)
         else: # page shown when the user successfully uploads an invalid file
-            return render_template("visualisation.html", exampledata="_example", message="Illegal file type!")
+            return render_template("visualisation.html", exampledata="_example", message="Wrong file type!", categories=examplejobs)
     else:
 
-        #if os.path.exists("static/radial_nodes_vis.html"): # This code below automatically removes the old vis
-            #os.remove("static/radial_nodes_vis.html") 
-            #flash("deleted static/radial_nodes_vis.html")
+        #if os.path.exists("static/radial_nodes.html"): # This code below automatically removes the old vis
+            #os.remove("static/radial_nodes.html") 
+            #flash("deleted static/radial_nodes.html")
 
-        paths=''
-        for el in [x for x in Path('.').iterdir() ]: #if x.is_dir()  this is for debugging 
-            paths=paths+str(el)+" ||| "
+        #paths=''
+        #for el in [x for x in Path('.').iterdir() ]: #if x.is_dir()  this is for debugging 
+            #paths=paths+str(el)+" ||| "
 
-        return render_template('visualisation.html', exampledata="_example", message = "Please upload a data file.", debug_msg="") #+paths
+        # +paths
+        return render_template('visualisation.html', exampledata="_example", message="Please upload a data file.", categories=examplejobs, debug_msg="")
 
 
 

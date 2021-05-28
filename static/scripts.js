@@ -50,7 +50,7 @@ function HighlightCategory(catelement) { // toggles highlight of the category bu
 
 
 
-function OpenFullscreen(visbox) { // This magic makes the fullscreen buttons work
+function OpenFullscreen(visbox) { // This function makes the fullscreen buttons work
     
     if (document.fullscreenElement || visbox==-1) { // this runs if you leave fullscreen
 
@@ -66,8 +66,9 @@ function OpenFullscreen(visbox) { // This magic makes the fullscreen buttons wor
         var visbox_=document.getElementById("visbox_"+visbox);
         visbox_.requestFullscreen();
 
-        var visframes=document.getElementsByClassName("visframe");
+        var visframes=document.getElementsByClassName("visframe visible");
         for (var j=0; j<visframes.length; j++) {
+
             visframes[j].classList.add("fullscreen");
         }
 
