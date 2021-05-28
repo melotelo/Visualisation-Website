@@ -396,7 +396,8 @@ li a:hover {
 }
 
 .visframe.visible {
-    display: inline;
+    display: inline-block;
+
 }
 
 .fullscreen {

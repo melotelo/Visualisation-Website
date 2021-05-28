@@ -76,26 +76,34 @@ function OpenFullscreen(visbox) { // This function makes the fullscreen buttons 
 }
 
 function selectVis(visbox, vischoice) { // 
-    //alert("test_"+visbox+"_"+vischoice);
     var vis=document.getElementById("visbox_"+visbox);
-
-    //document.getElementById("choice_"+visbox+"_"+vischoice).style.backgroundColor="rgb(143, 143, 143)";
     if (vischoice==0) {
         //vis.style.display="none"; //
     } else {
         vis.style.display="inline-block";
     }
 
-    for (var i=0; i<=3 ; i++) {
-        if (i==vischoice) {
-            document.getElementById("choice_"+visbox+"_"+i).className="visselected";
-            document.getElementById("visualisation_"+visbox+"_"+i).classList.add("visible");
-        } else {
-            document.getElementById("choice_"+visbox+"_"+i).className="visoption";
-            document.getElementById("visualisation_"+visbox+"_"+i).classList.remove("visible");
+    var options=document.getElementsByClassName("visoption");
+    for (var i=0; i<options.length ; i++) {
+        if (options[i].id.includes("choice_"+visbox)){
+            if (options[i].id == "choice_" + visbox + "_" + vischoice) {
+            options[i].classList.add("visselected");
+            } else {
+            options[i].classList.remove("visselected");
+            }
         }
+        
     }
-
+    var visframes=document.getElementsByClassName("visframe");
+    for (var j = 0; j < visframes.length; j++) {
+        if (visframes[j].id.includes("visualisation_" + visbox)) {
+            if (visframes[j].id == "visualisation_" + visbox + "_" + vischoice) {
+                visframes[j].classList.add("visible")
+            } else {
+                visframes[j].classList.remove("visible");
+            } 
+        }   
+    }
 }
 
 
